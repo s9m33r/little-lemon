@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { ScrollView, Text, StyleSheet, TextInput } from 'react-native';
+import { ScrollView, Text, StyleSheet, TextInput, Image, View } from 'react-native';
 
 export default function WelcomeScreen() {
   const [firstName, onChangeFirstName] = React.useState('');
 
   return (
     <ScrollView indicatorStyle="white" style={styles.container} keyboardDismissMode='on-drag'>
-      <Text style={styles.headerText}>Welcome to Little Lemon</Text>
+      <View style={styles.headerWrapper}>
+        <Image style={styles.image} source={require('./img/Little Lemon Logo.png')} />
+        <Text style={styles.headerText}>Little Lemon</Text>
+      </View>
       <Text style={styles.regularText}>
         Little Lemon is a charming neighborhood bistro that serves simple food
         and classic cocktails in a lively but casual environment. We would love
@@ -42,5 +45,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderColor: 'EDEFEE',
     backgroundColor: '#EDEFEE',
+  },
+  headerWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    margin: 10,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 20,
   },
 });

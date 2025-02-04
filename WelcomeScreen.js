@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { ScrollView, Text, StyleSheet, TextInput, Image, View, useColorScheme } from 'react-native';
+import { ScrollView, Text, StyleSheet, TextInput, Image, View, useColorScheme, Pressable } from 'react-native';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   const colorScheme = useColorScheme()
 
   const [firstName, onChangeFirstName] = React.useState('');
@@ -14,7 +14,6 @@ export default function WelcomeScreen() {
           ? { backgroundColor: '#fff' }
           : { backgroundColor: '#333333' },
       ]} keyboardDismissMode='on-drag'>
-      <Text>{colorScheme}</Text>
       <View style={styles.headerWrapper}>
         <Image style={styles.image} source={require('./img/Little Lemon Logo.png')} />
         <Text
@@ -35,6 +34,9 @@ export default function WelcomeScreen() {
         to hear more about your experience with us!
       </Text>
       <TextInput style={styles.inputBox} value={firstName} onChangeText={onChangeFirstName} placeholder={'First Name'} />
+      <Pressable onPress={() => navigation.navigate('Menu')}>
+        <Text style={styles.buttonText}>View Menu</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -74,5 +76,17 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 20,
+  },
+  buttonText: {
+    fontSize: 22,
+    padding: 10,
+    marginVertical: 8,
+    margin: 100,
+    backgroundColor: '#EE9972',
+    borderColor: '#EE9972',
+    borderWidth: 2,
+    borderRadius: 50,
+    color: '#EDEFEE',
+    textAlign: 'center',
   },
 });

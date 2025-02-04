@@ -27,7 +27,6 @@ export default function MenuItemsSectionList() {
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         ItemSeparatorComponent={Separator}
-        ListFooterComponent={Footer}
     />
 }
 

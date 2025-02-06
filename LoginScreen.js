@@ -1,7 +1,7 @@
 import { ScrollView, Text, StyleSheet, TextInput, Pressable } from 'react-native';
 import React from 'react';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
     const [email, onChangeEmail] = React.useState('')
     const [password, onChangePassword] = React.useState('')
     const [loggedIn, onChangeLoggedIn] = React.useState(false)
@@ -30,7 +30,7 @@ export default function LoginScreen() {
                         keyboardType={'default'}
                         secureTextEntry={true}
                     />
-                    <Pressable onPress={() => onChangeLoggedIn(!loggedIn)} style={styles.button}>
+                    <Pressable onPress={() => navigation.navigate("Welcome")} style={styles.button}>
                         <Text style={styles.buttonText}>Log in</Text>
                     </Pressable>
                 </>

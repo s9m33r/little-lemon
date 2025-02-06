@@ -34,8 +34,8 @@ export default function WelcomeScreen({ navigation }) {
         to hear more about your experience with us!
       </Text>
       <TextInput style={styles.inputBox} value={firstName} onChangeText={onChangeFirstName} placeholder={'First Name'} />
-      <Pressable onPress={() => navigation.navigate('Menu')}>
-        <Text style={styles.buttonText}>View Menu</Text>
+      <Pressable onPress={() => navigation.navigate('Newsletter')}>
+        <Text style={styles.buttonText}>Newsletter</Text>
       </Pressable>
     </ScrollView>
   );

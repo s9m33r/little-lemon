@@ -4,31 +4,33 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-
 import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import WelcomeScreen from './WelcomeScreen';
 import MenuScreen from './components/MenuItemsSectionList';
 import LoginScreen from './LoginScreen';
+import NewsletterScreen from './NewsletterScreen';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
-  const Drawer = createDrawerNavigator();
-
   return (
-    <NavigationContainer>
-      <View style={styles.container}>
+    <>
+      <NavigationContainer>
+        <View style={styles.container}>
           <LittleLemonHeader />
-          <Stack.Navigator initialRouteName="Login">
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Welcome" component={WelcomeScreen} />
-            <Stack.Screen name="Menu" component={MenuScreen} />
-          </Stack.Navigator>
+          <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
+            <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+            <Drawer.Screen name="Login" component={LoginScreen} />
+            <Drawer.Screen name="Menu" component={MenuScreen} />
+            <Drawer.Screen name="Newsletter" component={NewsletterScreen} />
+          </Drawer.Navigator>
         </View>
         <View style={styles.footerContainer}>
           <LittleLemonFooter />
         </View>
-    </NavigationContainer>
+      </NavigationContainer>
+    </>
   );
 }
 
@@ -39,4 +41,3 @@ const styles = StyleSheet.create({
   },
   footerContainer: { backgroundColor: '#333333' },
 });
-
